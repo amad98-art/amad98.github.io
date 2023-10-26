@@ -1,0 +1,50 @@
+    body{
+        background-color: #add8e6;
+    }
+   h2{
+        font-family: Caveat;
+        color: #266355;
+        box-sizing: border-box;}
+        
+        header h1 {
+            font-family: black ops one;
+        color: white;
+     }
+
+        article h3 {
+            font-family: Caveat;
+        text-align: center;
+        color: #1A1656;
+    }
+
+        article img {
+        max-width: 100%;
+        height:auto;}
+
+        nav, #feature, footer {
+        margin: 1%; }
+
+        nav li {
+        display: inline;
+		padding: 0.5em;
+      
+    }
+    nav a{
+        color: #7b1118;
+        text-decoration:none;
+    }
+    
+    footer{
+        color:#C72A1E ;
+    }
+
+
+    .clear_class{
+        clear: left;
+    }
+  .clear_class{
+    clear: left;
+  }
+  .clear_class{
+    clear: left;
+  }
