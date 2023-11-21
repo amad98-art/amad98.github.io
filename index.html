@@ -16,15 +16,27 @@
 <header class="w3-container w3-blue">  <!--w3-container adds 16 pixels of padding around each element; w3-green makes the background green -->
     
   <h1>Andrew Brady - Portfolio</h1>
+  
 	<nav>
+       
         <ul>
-		<li><a href="index.html">Home</a></li>
+			<li><a href="index.html">Home</a></li>
             <li><a href="Gallery.html">Gallery</a></li>
             <li><a href="AboutMyself.html"> AboutMyself</a></li>
             <li><a href="Contact.html">Contact</a></li>
         </ul>
 	</nav>
+    
 </header>
+
+<button class=" w3-button w3-teal" type="button" onclick="document.getElementById('date').innerHTML = Date();"> check time</button>
+
+<p id="date"></p>
+<script>
+    var d = new Date();
+    document.getElementById("date").innerHTML = d;
+</script>
+
 
 <div class="w3-container">
     <h2>AMB Art Gallery</h2>
