@@ -5,116 +5,438 @@
     <title>Andrew Brady Portfolio Site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="css/my-styles.css">
+    <link rel="stylesheet" href="css/my-styles.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Caveat&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Caveat&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header class="w3-container w3-blue">  <!--w3-container adds 16 pixels of padding around each element; w3-green makes the background green -->
-    
   <h1>Andrew Brady - Portfolio</h1>
-  
-	<nav>
-       
-        <ul>
-	    <li><a href="index.html">Home</a></li>
-            <li><a href="AboutMyself.html"> AboutMyself</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-        </ul>
-	</nav>
-    
 </header>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="AboutMyself.html"> About Myself</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-<button class=" w3-button w3-teal" type="button" onclick="document.getElementById('date').innerHTML = Date();"> check time</button>
 
-<p id="date"></p>
-<script>
-    var d = new Date();
-    document.getElementById("date").innerHTML = d;
-</script>
+<!-- JAVASCRIPT BUTTON -->
+<section class="w3-container w3-row-padding">
+    <button class=" w3-button w3-teal" type="button" onclick="document.getElementById('date').innerHTML = Date();"> check time</button>
+    <p id="date"></p>
+    <script>
+        var d = new Date();
+        document.getElementById("date").innerHTML = d;
+    </script>
+</section>
 
 
- <section class="w3-container w3-row">  
-      
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="snake"></a>Snake</h3>
-        <p><a href="images/Snake-72dpi.jpg"></a><p><img src="images/Snake-72dpi.jpg"  /></p>
-    </article>
-    <article class="w3-col s12 m4 l4">  
-        <h3><a name="porster">Poster<a></h3>
-        <p><a href="images/poster - 72dpi.jpg"><img src="images/poster - 72dpi.jpg" /></a></p>
-    </article>
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="book cover">Book cover</a></h3>     
-        <p><a href="images/bookcover-72dpi.jpg"></a><p><img src="images/bookcover-72dpi.jpg" /></p>
-    </article>
-    <article class="w3-col s12 m4 l4 clear_class">
-        <h3><a name="zoro">Zoro</a></h3>     
-        <p><a href="images/zoro-72dpi.jpg"></a><p><img src="images/zoro-72dpi.jpg" /></p>
-    </article>
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="Scorpionon-72dpi.jpg">Scorpionon</a></h3>
-       <p><a href="images/scorpinon-72dpi.jpg"></a></p> <p><img src="images/scorpinon-72dpi.jpg" ></p>
-    </article>
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="Hand of dreams"></a>Hand of dreams</h3>
-        <p><a href="images/Hand of dreams-72 dpi.jpg"></a><p><img src="images/Hand of dreams-72 dpi.jpg"  /></p>
-    </article>
-    <article class="w3-col s12 m4 l4 clear_class">
-        <h3><a name="devil mask">Devil Mask</a></h3>
-        <p><a href="images/devil mask-72dpi.jpg"></a><img src="images/devil mask-72dpi.jpg"/></p>
-      </article>
-      <article class="w3-col s12 m4 l4">
-        <h3><a name="Annabelle">Annabelle</a></h3>
-        <p><a href="images/Annabelle-72dpi.jpg"></a><p><img src="images/Annabelle-72dpi.jpg"/></p>
-    </article>
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="covid19">Covid 19</a></h3>
-        <p><a href="images/covid19 card reversed 72dpi.jpg"></a><img src="images/covid19 card reversed 72dpi.jpg"/></p>
-</article>
-  </section>
+
+
+
+
+<!-- IMAGE GALLERY -->
+<!-- Note: used Modal Images from w3schools.com for modal. https://www.w3schools.com/howto/howto_css_modal_images.asp -->
+
+
+
+<section id="imageGallery" class="w3-row w3-col s12"> 
+
+    <div class="w3-row w3-section">
+        <div class= "w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="snake"></a>Snake</h3>
+            <!-- Trigger the Modal -->
+            <img id="Snake" src="images/Snake-72dpi.jpg" alt="Snake" style="width:100%;max-width:300px">
+            
+            
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+       
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+        
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("Snake");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                }
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                modal.style.display = "none";
+                }
+            </script>
+
+
+        </div>
+
+        <div class=" w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="poster"></a>Poster</h3>
+            <!-- Trigger the Modal -->
+            <img id="poster" src="images/Poster-72dpi.jpg" alt="poster" style="width:100%;max-width:300px">
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+                
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+        
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("poster");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                }
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                modal.style.display = "none";
+                }
+            </script>
+
+        </div>
+
+        <div class=" w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="bookcover"></a>Book cover</h3>
+            <!-- Trigger the Modal -->
+            <img id="bookcover" src="images/bookcover-72dpi.jpg" alt="bookcover" style="width:100%;max-width:300px">
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+        
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("bookcover");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                }
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                modal.style.display = "none";
+                }
+            </script> 
+
+        </div>
+        
+    </div> <!-- end of row 1 -->
+
+    <div class="w3-row w3-section">
+        <div class=" w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="zoro"></a>Zoro</h3>
+            <!-- Trigger the Modal -->
+            <img id="zoro" src="images/zoro-72dpi.jpg" alt="zoro" style="width:100%;max-width:300px">
+            
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+        
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("zoro");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                }
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                modal.style.display = "none";
+                }
+            </script>
+        </div>
+
+        <div class=" w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="Scorpionon"></a>Scorpionon</h3>
+            <!-- Trigger the Modal -->
+            <img id="scorpionon" src="images/scorpion-72dpi.jpg" alt="scorpionon" style="width:100%;max-width:300px">
+
+            <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+    
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+    
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+        
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("Scorpionon");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                }
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                modal.style.display = "none";
+                }
+            </script>
+        </div>
+
+        <div class=" w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="Handofdreams"></a>Hand of Dreams</h3>
+            <!-- Trigger the Modal -->
+            <img id="Handofdreams" src="images/Handofdreams-72dpi.jpg" alt="Handofdreams" style="width:100%;max-width:300px">
+
+            <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+    
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+    
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+        
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("Handofdreams");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                }
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                modal.style.display = "none";
+                }
+            </script>
+
+
+        </div>
+    </div> <!-- end of row 2 -->
+  
+    <div class="w3-row w3-section">
+
+        <div class=" w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="Devil mask"></a>Devil mask</h3>
+            <!-- Trigger the Modal -->
+            <img id="devil mask" src="images/Devil mask-72dpi.jpg" alt="devil mask" style="width:100%;max-width:300px">
+
+             <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+    
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+    
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+
+            <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("devil mask");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() { 
+        modal.style.display = "none";
+        }
+    </script>
+        </div>
+
+        <div class="w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="Annabelle"></a>Annabelle</h3>
+            <!-- Trigger the Modal -->
+            <img id="Annabelle" src="images/Annabelle-72dpi.jpg" alt="Annabelle" style="width:100%;max-width:300px">
+
+             <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+    
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+    
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+        
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("Annabelle");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                }
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                modal.style.display = "none";
+                }
+            </script>
+
+
+
+
+        </div>
+
+        <div class=" w3-padding w3-col s12 m4 l4 w3-center" >
+            <h3><a name="Covidcard"></a>Covidcard</h3>
+            <!-- Trigger the Modal -->
+            <img id="Covidcard" src="images/Covidcard-72dpi.jpg" alt="Covidcard" style="width:100%;max-width:300px">
+
+             <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+    
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+    
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+        
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("Covidcard");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                }
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() { 
+                modal.style.display = "none";
+                }
+            </script>
+
+        </div>
+    </div> <!-- end of row 3 -->
  
-  
-
-  
-
-  <section class="w3-row-padding">
-      
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="zoro">Zoro</a></h3>
-        <p><a href="images/zoro-72dpi.jpg"></a><img src="images/zoro-72dpi.jpg"/></p>
-    </article>
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="Annabelle">Annabelle</a></h3>
-        <p><a href="images/Annabelle-72dpi.jpg"></a><img src="images/Annabelle-72dpi.jpg"/></p>
-      </article>
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="devil mask">Devil Mask</a></h3>
-        <p><a href="images/devil mask-72dpi.jpg"></a><img src="images/devil mask-72dpi.jpg"/></p>
-      </article>
-          <article class="w3-col s12 m4 l4">
-            <h3><a name="covid19">Covid 19</a></h3>
-            <p><a href="images/covid19 card reversed 72dpi.jpg"></a><img src="images/covid19 card reversed 72dpi.jpg"/></p>
-    </article>
-    <article class="w3-col s12 m4 l4">
-        <h3><a name="bookcover">Bookcover</a></h3>
-            <p><a href="images/bookcover-72dpi.jpg"></a><img src="images/bookcover-72dpi.jpg"/></p>
-      </article>
-      <article class="w3-col s12 m4 l4">
-        <h3><a name="Snake">Snake</a></h3>
-        <p><a href="images/Snake-72dpi.jpg"></a><img src="images/Snake-72dpi.jpg"/></p>
-      </article>
-  </section>
-    <section class="w3-container">
-     
-
 </section>  
 
-        <footer>
-			<p>&copy; Copyright 2020</p>
-		</footer>
+
+<footer class="w3-container" >
+    <p>&copy; Copyright 2023</p>
+</footer>
 	</body>
 </html>
